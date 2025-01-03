@@ -389,12 +389,9 @@ def export(
             layer.rep()
 
     if not save_path:
-        save_path = os.path.join(
-            cfg.Global.save_inference_dir, "inference", "inference"
-        )
+        save_path = os.path.join(cfg.Global.save_inference_dir, "inference")
     else:
-        save_path = os.path.join(save_path, "inference", "inference")
-
+        save_path = os.path.join(save_path, "inference")
     model_name = cfg.model_name
     input_spec = get_input_spec(cfg.INFERENCE, model_name)
     model = to_static(model, input_spec=input_spec)
